@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="Matrix.js"></script>
+	<script src="Regression.js"></script>
+<script>
+
+var data = [
+{
+	team1 : "Brasilien", team2 : "Kroatien",
+	odd1 : 1.33, odd0 : 5.25, odd2 : 10.50,
+	score1 : 3, score2 : 1
+},
+{
+	team1 : "Mexiko", team2 : "Kamerun",
+	odd1 : 2.15, odd0 : 3.20, odd2 : 3.40,
+	score1 : 1, score2 : 0
+},
+{
+	team1 : "Spanien", team2 : "Niederlande",
+	odd1 : 1.83, odd0 : 3.40, odd2 : 5.00,
+	score1 : 1, score2 : 5
+},
+{
+	team1 : "Chile", team2 : "Australien",
+	odd1 : 1.45, odd0 : 4.25, odd2 : 7.00,
+	score1 : 3, score2 : 1
+},
+{
+	team1 : "Kolumbien", team2 : "Griechenland",
+	odd1 : 1.83, odd0 : 3.30, odd2 : 4.60,
+	score1 : 3, score2 : 0
+},
+{
+	team1 : "Uruguay", team2 : "Costa Rica",
+	odd1 : 2.55, odd0 : 3.10, odd2 : 2.75,
+	score1 : 1, score2 : 3
+},
+{
+	team1 : "England", team2 : "Italien",
+	odd1 : 2.85, odd0 : 2.95, odd2 : 2.60,
+	score1 : 1, score2 : 2
+},
+{
+	team1 : "Côte d’Ivoire", team2 : "Japan",
+	odd1 : 2.60, odd0 : 3.20, odd2 : 2.70,
+	score1 : 2, score2 : 1
+},
+{
+	team1 : "Schweiz", team2 : "Ecuador",
+	odd1 : 2.45, odd0 : 3.10, odd2 : 2.95,
+	score1 : 2, score2 : 1
+},
+{
+	team1 : "Frankreich", team2 : "Honduras",
+	odd1 : 1.36, odd0 : 4.50, odd2 : 9.00,
+	score1 : 3, score2 : 0
+},
+{
+	team1 : "Argentinien", team2 : "Bosnien und Herzegowina",
+	odd1 : 1.40, odd0 : 4.40, odd2 : 7.75,
+	score1 : 2, score2 : 1
+},
+{
+	team1 : "Deutschland", team2 : "Portugal",
+	odd1 : 1.90, odd0 : 3.70, odd2 : 4.10,
+	score1 : 4, score2 : 0
+},
+{
+	team1 : "Iran", team2 : "Nigeria",
+	odd1 : 4.00, odd0 : 3.40, odd2 : 1.90,
+	score1 : 0, score2 : 0
+},
+{
+	team1 : "Ghana", team2 : "USA",
+	odd1 : 2.45, odd0 : 3.30, odd2 : 2.80,
+	score1 : 1, score2 : 2
+},
+{
+	team1 : "Belgien", team2 : "Algerien",
+	odd1 : 1.33, odd0 : 5.00, odd2 : 8.25,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Brasilien", team2 : "Mexiko",
+	odd1 : 1.30, odd0 : 5.50, odd2 : 8.25,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Russland", team2 : "Südkorea",
+	odd1 : 1.80, odd0 : 3.60, odd2 : 4.25,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Australien", team2 : "Niederlande",
+	odd1 : 10.50, odd0 : 7.00, odd2 : 1.20,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Spanien", team2 : "Chile",
+	odd1 : 1.55, odd0 : 4.33, odd2 : 5.25,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Kamerun", team2 : "Kroatien",
+	odd1 : 6.00, odd0 : 3.90, odd2 : 1.55,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Kolumbien", team2 : "Côte d’Ivoire",
+	odd1 : 2.05, odd0 : 3.40, odd2 : 3.50,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Uruguay", team2 : "England",
+	odd1 : 3.40, odd0 : 3.50, odd2 : 2.05,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Japan", team2 : "Griechenland",
+	odd1 : 2.15, odd0 : 3.30, odd2 : 3.30,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Italien", team2 : "Costa Rica",
+	odd1 : 1.50, odd0 : 4.00, odd2 : 6.50,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Schweiz", team2 : "Frankreich",
+	odd1 : 4.20, odd0 : 3.60, odd2 : 1.80,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Honduras", team2 : "Ecuador",
+	odd1 : 5.50, odd0 : 4.00, odd2 : 1.57,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Argentinien", team2 : "Iran",
+	odd1 : 1.12, odd0 : 8.50, odd2 : 16.50,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Deutschland", team2 : "Ghana",
+	odd1 : null, odd0 : null, odd2 : null,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Nigeria", team2 : "Bosnien und Herzegowina",
+	odd1 : 4.25, odd0 : 3.60, odd2 : 1.80,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Belgien", team2 : "Russland",
+	odd1 : null, odd0 : null, odd2 : null,
+	score1 : null, score2 : null
+},
+{
+	team1 : "Südkorea", team2 : "Algerien",
+	odd1 : null, odd0 : null, odd2 : null,
+	score1 : null, score2 : null
+},
+{
+	team1 : "USA", team2 : "Portugal",
+	odd1 : null, odd0 : null, odd2 : null,
+	score1 : null, score2 : null
+},
+/*
+{
+	team1 : "team1", team2 : "team2",
+	odd1 : null, odd0 : null, odd2 : null,
+	score1 : null, score2 : null
+},
+*/
+];
+
+$(document).ready(function() {
+	var matrixXArray = [];
+	var matrixYArray = [];
+
+	var index = 0;
+	for (var i = 0; i < data.length; i++) {
+		var game = data[i];
+
+		if (typeof game.score1 === "number" && typeof game.score2 === "number") {
+			if ((game.odd1 < game.odd2 && game.score1 > game.score2) || (game.odd1 > game.odd2 && game.score1 < game.score2)) {
+				matrixXArray[index * 2] = [ game.odd1, game.odd0, game.odd2 ];
+				matrixXArray[index * 2 + 1] = [ game.odd2, game.odd0, game.odd1 ];
+				matrixYArray[index * 2] = [ game.score1 ];
+				matrixYArray[index * 2 + 1] = [ game.score2 ];
+				index++;
+			}
+		}
+	}
+
+	var regression = new Regression(new Matrix(matrixXArray), new Matrix(matrixYArray));
+	var matrixB = regression.solve();
+
+	for (var i = 0; i < data.length; i++) {
+		var game = data[i];
+		var markup = $("<tr/>");
+		markup.append($("<td/>").html((i + 1) + "."));
+		markup.append($("<td/>").html(game.team1));
+		markup.append($("<td/>").html(game.score1 + "&nbsp;:&nbsp;" + game.score2));
+		markup.append($("<td/>").html(game.team2));
+
+		var gameXArray = [[ 1, game.odd1, game.odd0, game.odd2 ]];
+		var resultArray = matrixB.multiply(new Matrix(gameXArray).transpose());
+		var predictedScore1 = resultArray.matrixArray[0][0];
+
+		var gameXArray = [[ 1, game.odd2, game.odd0, game.odd1 ]];
+		var resultArray = matrixB.multiply(new Matrix(gameXArray).transpose());
+		var predictedScore2 = resultArray.matrixArray[0][0];
+
+		markup.append($("<td/>").html(predictedScore1.toFixed(2) + "&nbsp;:&nbsp;" + predictedScore2.toFixed(2)));
+
+		if (predictedScore1 < 0) {
+			predictedScore2 -= predictedScore1;
+			predictedScore1 = 0;
+		}
+
+		if (predictedScore2 < 0) {
+			predictedScore1 -= predictedScore2;
+			predictedScore2 = 0;
+		}
+
+		var roundedPredictedScore1 = Math.round(predictedScore1);
+		var roundedPredictedScore2 = Math.round(predictedScore2);
+
+		if (roundedPredictedScore1 === roundedPredictedScore2) {
+			var sumPredictedScore = predictedScore1 + predictedScore2;
+			var sumRoundedPredictedScore = roundedPredictedScore1 + roundedPredictedScore2;
+			if (predictedScore1 > predictedScore2) {
+				if (Math.abs(sumPredictedScore - (sumRoundedPredictedScore + 1)) < Math.abs(sumPredictedScore - (sumRoundedPredictedScore + 1))) {
+					roundedPredictedScore1++;
+				} else {
+					roundedPredictedScore2--;
+				}
+			} else {
+				if (Math.abs(sumPredictedScore - (sumRoundedPredictedScore + 1)) < Math.abs(sumPredictedScore - (sumRoundedPredictedScore + 1))) {
+					roundedPredictedScore2++;
+				} else {
+					roundedPredictedScore1--;
+				}
+			}
+		}
+
+		markup.append($("<td/>").html(roundedPredictedScore1 + "&nbsp;:&nbsp;" + roundedPredictedScore2));
+
+		$("#tbl").append(markup);
+	}
+});
+
+</script>
+</head>
+<body>
+<table id="tbl">
+<tr><th>Nr</th><th>Team 1</th><th>Ergebnis</th><th>Team 2</th><th>Exakte Vorhersage</th><th>Gerundete Vorhersage</th></tr>
+</table>
+</body>
+</html>
